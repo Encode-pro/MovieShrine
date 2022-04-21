@@ -17,17 +17,18 @@ if(isset($_POST['signup'])){
      //echo $sql;
     $result=mysqli_query($con,$sql);
     $num=mysqli_num_rows($result);
-    if($num==1)
+    if($num>=1)
     {
-        echo "duplicate";
         ?>
         <script>
         alert("Account With the given Email Already Exists....");
         </script>
         <?php
+        header('location:signup.html');
+
     }
     else{
-        $sqll="insert into moviereview.login(email,pswd) values('$email','$pswd')";
+        $sqll="insert into moviereview.login(email,pswd,usrname) values('$email','$pswd','$username')";
         mysqli_query($con,$sqll);
         ?>
         <script>
@@ -39,3 +40,5 @@ if(isset($_POST['signup'])){
     $con->close();
 }
 ?>
+
+

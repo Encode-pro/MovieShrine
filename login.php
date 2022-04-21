@@ -14,12 +14,22 @@ if(isset($_POST['login'])){
     $pswd = $_POST['pswd'];
 
     $sql = "select * from moviereview.login where email='$email' && pswd='$pswd'";
+    $sql1="select usrname from moviereview.login where email ='$email'";
      //echo $sql;
     $result=mysqli_query($con,$sql);
+    $result1=mysqli_query($con,$sql1);
+    if(mysqli_num_rows($result1)>0)
+      {
+           while($row=mysqli_fetch_assoc($result1))
+           {
+            $uname= $row['usrname'];
+           }
+        }
     $num=mysqli_num_rows($result);
     if($num==1)
     {
         $_SESSION['email']= $email;
+        $_SESSION['username']=$uname;
         header('location:home.html');
     }
     else{

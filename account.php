@@ -16,7 +16,7 @@
 <body>
     <div class="navbar">
         <ul class="nav-list">
-            <div class="logo"><img src="img/logoo.png" onclick="window.location.href = 'home.html';" alt="logo"></div>
+            <div class="logo"><img src="img/logoo.png" onclick="window.location.href = 'account.php';" alt="logo"></div>
             <li><a href="home.html">Home</a></li>
             <li><a href="movies.html">Movies</a></li>
             <li><a href="tvseries.html">TvSeries</a></li>
@@ -38,7 +38,9 @@
                         { 
                             session_start(); 
                         } 
-                        echo "Welcome         " . $_SESSION['email'];
+                        echo "Welcome         " . $_SESSION['username'];
+                        echo "<br> Email:         " . $_SESSION['email'];
+        
                         echo "<br>";
                         ?> 
                     </p>
