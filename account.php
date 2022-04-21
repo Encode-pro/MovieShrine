@@ -44,7 +44,7 @@
                     </p>
                 <p class="text-small"> This is Website where you can see reviews and give your reviews about a movie. <br> Enjoy your vist on this site.</p>
                 <div class="buttons">
-                    <button class="btn" onclick="window.location.href = 'index.html';">Logout</button>
+                    <button class="btn" onclick="window.location.href = 'logout.php';">Logout</button>
                 </div>
             </div>
             <div class="secondhalf">
