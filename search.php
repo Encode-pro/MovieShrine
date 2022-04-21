@@ -28,7 +28,6 @@
     <section class="background firstSectionindex">
         <div class="box-main">
             <div class="firsthalf">
-                <p class="text-big"> Serch page </p>
                 
                 <p class="text-small">
                 <?php
@@ -46,18 +45,7 @@
                         //echo "Success connecting to db";
                          //echo $sql;
                         $res=mysqli_query($con,$sql);
-                        if(mysqli_num_rows($res)>0)
-                        {
-                                while($row=mysqli_fetch_assoc($res))
-                                {
-                                    //echo '<pre>';
-                                    //print_r($row);
-                                    echo $row['name'];
-                                    //echo "jkbkb";
-                                    echo $row['sreview'];
-                                    echo "<br/>";
-                            }
-                    }
+                        
                         if($con->query($sql) == true)
                         {
                                 ?>
@@ -77,15 +65,64 @@
                     
                 ?>
                 </p>
-                <div class="buttons">
-                    <button class="btn" onclick="window.location.href = 'index.html';">Give Review</button>
-                </div>
             </div>
             <div class="secondhalf">
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-family: Lobster;
+}
+
+th, td {
+  padding: 30px;
+  text-align: left;
+  border-bottom: 1px solid #DDD;
+}
+
+tr:hover {background-color: rgba(255,137,52,1);}
+</style>
+</head>
+<body>
+
+<h2 class="text-center">Review</h2>
+<p class="text-small">Reviews with name <?php echo $str;?> </p>
+
+<table>
+  <tr>
+    <th>S.No.</th>
+    <th>Name</th>
+    <th>Number</th>
+    <th>How was the Movie?</th>
+    <th>Review out of 10? </th>
+    <th>Long Review </th>
+  </tr>
+  <?php
+      if(mysqli_num_rows($res)>0)
+      {
+           while($row=mysqli_fetch_assoc($res))
+           {
+       ?>
+            <tr>
+                <td><?php echo $row['sno']; ?></td>
+                <td><?php echo $row['name']; ?></td>
+                <td><?php echo $row['number']; ?></td>
+                <td><?php echo $row['sreview']; ?></td>
+                <td><?php echo $row['nreview']; ?></td>
+                <td><?php echo $row['lreview']; ?></td>
+            </tr>
+       
+       <?php
+           }
+        }
+       ?>
+
+  
+</table>
+
             </div>
         </div>
-        <h2 class="text-center">Review</h2>   
-    </section>
+        </section>
     <footer>
             <p class="text-footer">
                 Copyright &copy; 2022 - www.movieshrine.com All rights resreved
