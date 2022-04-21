@@ -25,7 +25,7 @@
             <button class="btn btn-sm">Search</button>
         </div>
     </div>
-    <section class="background firstSectionindex">
+    <section class="background firstSectionsearch">
         <div class="box-main">
             <div class="firsthalf">
                 

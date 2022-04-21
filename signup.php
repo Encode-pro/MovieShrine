@@ -9,6 +9,7 @@ if(isset($_POST['signup'])){
         die("connection to this database faild due to".mysqli_connect_error());
     }
     //echo "Success connecting to db";
+    $username=$_POST['txt'];
     $email = $_POST['email'];
     $pswd = $_POST['pswd'];
 

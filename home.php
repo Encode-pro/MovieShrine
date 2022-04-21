@@ -1,53 +1,14 @@
 <?php
 session_start();
-if(isset($_POST['login'])){
-    $server = "localhost";
-    $username="root";
-    $password="";
-    $db="moviereview";
-    $con = mysqli_connect($server,$username,$password,$db);
-    if(!$con){
-        die("connection to this database faild due to".mysqli_connect_error());
-    }
-    //echo "Success connecting to db";
-    $email = $_POST['email'];
-    $pswd = $_POST['pswd'];
-
-    $sql = "select * from moviereview.login where email='$email' && pswd='$pswd'";
-     //echo $sql;
-    $result=mysqli_query($con,$sql);
-    $num=mysqli_num_rows($result);
-    if($num==1)
-    {
-        $_SESSION['email']= $email;
-        header('location:home.html');
-    }
-    else{
-        header('location:signup.html');
-    }
-
-
-
-    if($con->query($sql) == true)
-    {
-        ?>
-        <script>
-        alert( "Login Successful");
-        </script>
-        <?php
-    }
-    else{
-        ?>
-        <script>
-         alert( "ERROR: $sql <br> $con->error");
-         </script>
-        <?php
-    }
+if($_SESSION['email'])
+{
+    header("location:home.html");
 }
-if(isset($_POST['log'])){
-    echo $_SESSION['email'];
+else{
+    header("location:signup.html");
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,12 +25,11 @@ if(isset($_POST['log'])){
 <body>
     <div class="navbar">
         <ul class="nav-list">
-            <div class="logo"><img src="img/logoo.png" onclick="window.location.href = 'home.html';" alt="logo"></div>
+            <div class="logo"><img src="img/logoo.png" onclick="window.location.href = 'account.php';" alt="logo"></div>
             <li><a href="home.html">Home</a></li>
             <li><a href="movies.html">Movies</a></li>
             <li><a href="tvseries.html">TvSeries</a></li>
             <li><a href="Aboutus.html">About Us</a></li>
-            <li><?php echo "Welcome".$_SESSION['email']; ?></li>
         </ul>
         <div class="rightNav">
             <form action="search.php" method="post">
@@ -117,4 +77,3 @@ if(isset($_POST['log'])){
     <script src="index.js"></script>
 </body>
 </html>
-
