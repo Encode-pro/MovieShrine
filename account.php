@@ -54,7 +54,27 @@
                 </div>
             </div>
             <div class="secondhalf">
-                <img src="img/userimg.png" alt="Movie Image">
+                <?php
+                     include "db_conn.php";
+                     $u_name=$_SESSION['username'];
+                     $sql="select image_url from moviereview.images where user_name='$u_name'";
+                     $res=mysqli_query($con,$sql);
+                     if(mysqli_num_rows($res)>0)
+                     {
+                         while($row=mysqli_fetch_assoc($res))
+                     {
+                 ?>
+                <img src="img/userprofile<?=$row['image_url']?>">
+                <?php
+                      }
+                    }
+                    else
+                    {
+                      ?>
+                      <img src="img/userimg.png" alt="Movie Image">
+                      <?php  
+                    }
+                ?>
             </div>
         </div>
     </section>

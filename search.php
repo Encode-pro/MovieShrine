@@ -32,14 +32,7 @@
                 <p class="text-small">
                 <?php
                     if(isset($_POST['search'])){
-                        $server = "localhost";
-                        $username="root";
-                        $password="";
-                        $db="moviereview";
-                        $con = mysqli_connect($server,$username,$password,$db);
-                        if(!$con){
-                                die("connection to this database faild due to".mysqli_connect_error());
-                        }
+                        include "db_conn.php";
                         $str = mysqli_real_escape_string($con,$_POST['str']);
                         $sql="select * from moviereview.review where name like '%$str%'";
                         //echo "Success connecting to db";
