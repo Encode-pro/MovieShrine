@@ -47,6 +47,10 @@
                 <p class="text-small"> This is Website where you can see reviews and give your reviews about a movie. <br> Enjoy your vist on this site.</p>
                 <div class="buttons">
                     <button class="btn" onclick="window.location.href = 'logout.php';">Logout</button>
+                    <form action="uploaddata.php" method="post" enctype="multipart/form-data">
+                    <input class="btn" type ="file" name= "my_image">
+                    <input class="btn" type="submit" name="submit" value="Upload">
+                    </form>
                 </div>
             </div>
             <div class="secondhalf">
