@@ -16,7 +16,7 @@
 <body>
     <div class="navbar">
         <ul class="nav-list">
-            <div class="logo"><img src="img/logoo.png" onclick="window.location.href = 'account.php';" alt="logo"></div>
+        <div class="logo"><img src="img/logoo.png" onclick="window.location.href = 'account.php';" alt="logo"></div>
             <li><a href="home.html">Home</a></li>
             <li><a href="movies.html">Movies</a></li>
             <li><a href="tvseries.html">TvSeries</a></li>
@@ -51,6 +51,7 @@
                     <input class="btn" type ="file" name= "my_image">
                     <input class="btn" type="submit" name="submit" value="Upload">
                     </form>
+                    <button class="btn" onclick="window.location.href = 'webdata.html';">Upload Web Data</button>
                 </div>
             </div>
             <div class="secondhalf">
