@@ -111,6 +111,12 @@
     padding: 15%;
     margin-top: 0%;
 }
+
+.firstSectionmovienotfound{
+    height:0vh;
+    padding: 0%;
+    margin-top: 0%;
+}
 .firsthalf{
     
 
@@ -158,6 +164,8 @@
     color: white;
     font-size: 40px;
     padding: 20px;
+    font-family: Lobster;
+
 
 }
 
@@ -191,6 +199,20 @@
     align-items: center;
     background : rgba(255,137,52,1);
 }
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: Lobster;
+  }
+  
+  th, td {
+    padding: 30px;
+    text-align: left;
+    border-bottom: 1px solid #DDD;
+  }
+  
+  tr:hover {background-color: rgba(255,137,52,1);}
 
 
 

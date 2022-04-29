@@ -25,41 +25,36 @@
             <button class="btn btn-sm">Search</button>
         </div>
     </div>
-    
-                <?php
-                     include "db_conn.php";
-                     $sql="select * from moviereview.movie_data";
-                     $res=mysqli_query($con,$sql);
-                     if(mysqli_num_rows($res)>0)
-                     {
-                         while($row=mysqli_fetch_assoc($res))
-                     {
-                 ?>
-                 <section class="background firstSectionwebdata">
-        <div class="box-main">
-            <div class="firsthalf">
-                <p class="text-big"> <?=$row['name']?></p>
-                <p class="text-small"><?=$row['description']?></p>
-                <div class="buttons">
-                
-                    <button class="btn" onclick="window.location.href = 'index.html';">Give Review</button>
+
+    <?php
+    include "db_conn.php";
+    $sql = "select * from moviereview.movie_data";
+    $res = mysqli_query($con, $sql);
+    if (mysqli_num_rows($res) > 0) {
+        while ($row = mysqli_fetch_assoc($res)) {
+    ?>
+            <section class="background firstSectionwebdata">
+                <div class="box-main">
+                    <div class="firsthalf">
+                        <p class="text-big"> <?= $row['name'] ?></p>
+                        <p class="text-small"><?= $row['description'] ?></p>
+                        <div class="buttons">
+                            <button class="btn" onclick="window.location.href = 'index.html';">Give Review</button>
+                        </div>
+                    </div>
+                    <div class="secondhalf">
+                        <img src="img/userprofile<?= $row['image'] ?>">
+                    </div>
                 </div>
-            </div>
-            <div class="secondhalf">
-                <img src="img/userprofile<?=$row['image']?>">
-            </div>
-            </div>
-    </section>
-            <?php
-                      }
-                    }
-                    else
-                    {
-                      ?>
-                      <img src="img/userimg.png" alt="Movie Image">
-                      <?php  
-                    }
-            ?>
+            </section>
+        <?php
+        }
+    } else {
+        ?>
+        <img src="img/userimg.png" alt="Movie Image">
+    <?php
+    }
+    ?>
     <footer>
         <p class="text-footer">
             Copyright &copy; 2022 - www.movieshrine.com All rights resreved
@@ -67,4 +62,5 @@
     </footer>
     <script src="index.js"></script>
 </body>
+
 </html>
