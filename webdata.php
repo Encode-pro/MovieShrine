@@ -3,7 +3,7 @@ if(isset($_POST['submitdata']) && isset($_FILES['my_image']))
 {
     include "db_conn.php";
     $name = $_POST['name'];
-    $desc = $_POST['desc'];
+    $descp = $_POST['descp'];
     echo "<pre>";
     print_r($_FILES['my_image']);
     echo"</pre>";
@@ -15,7 +15,7 @@ if(isset($_POST['submitdata']) && isset($_FILES['my_image']))
 
     if($error===0)
     {
-        if($img_size>125000)
+        if($img_size>125000000)
         {
             $em="Sorry, Your file is too large.";
             header("Location: account.php?error=$em");
@@ -30,7 +30,7 @@ if(isset($_POST['submitdata']) && isset($_FILES['my_image']))
                 $new_img_name=uniqid("IMG-",true).'.'.$img_ex_lc;
                 $img_upload_path='img/userprofile'.$new_img_name;
                 move_uploaded_file($tmp_name,$img_upload_path);
-                $sql="insert into moviereview.moviedata(moviename,description,image) values ('$name','$desc','$new_img_name')";
+                $sql="insert into moviereview.movie_data (name,description,image) values ('$name','$descp','$new_img_name')";
                 mysqli_query($con,$sql);
                 header("Location: webdata.html");
                 
@@ -49,7 +49,7 @@ if(isset($_POST['submitdata']) && isset($_FILES['my_image']))
     }
 }
 else{
-    header("Location:webdata.php");
+    header("Location:webdata.html");
 }
     echo "Hello";
 ?>
