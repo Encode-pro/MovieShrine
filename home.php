@@ -1,14 +1,13 @@
 <?php
-session_start();
-if($_SESSION['email'])
-{
-    header("location:home.html");
-}
-else{
-    header("location:signup.html");
-}
+// session_start();
+// if($_SESSION['email'])
+// {
+//     header("location:home.php");
+// }
+// else{
+//     header("location:signup.html");
+// }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,55 +24,53 @@ else{
 <body>
     <div class="navbar">
         <ul class="nav-list">
-        <div class="logo"><img src="img/logoo.png" onclick="window.location.href = 'account.php';" alt="logo"></div>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="movies.html">Movies</a></li>
+            <div class="logo"><img src="img/logoo.png" onclick="window.location.href = 'account.php';" alt="logo"></div>
+            <li><a href="home.php">Home</a></li>
+            <li><a href="movies.php">Movies</a></li>
             <li><a href="tvseries.html">TvSeries</a></li>
             <li><a href="Aboutus.html">About Us</a></li>
         </ul>
         <div class="rightNav">
-            <form action="search.php" method="post">
-            <input type="type" name="str" id="search">
-            <input type="submit" name="search" class="btn btn-sm" Value ="Search"/>
-            </form>
+            <input type="type" name="search" id="search">
+            <button class="btn btn-sm">Search</button>
         </div>
     </div>
-    <section class="background firstSection">
-        <div class="box-main">
-            <div class="firsthalf">
-                <p class="text-big"> John Wick </p>
-                <p class="text-small">John wick has a very simple revenge story. It can be summarized as
-                    "Keanu gets angry and shoots bad guys" but what makes it special? Directed by Chad
-                    Stahelski who's a stunt specialist boy does it show because the main selling point in
-                    the film are some real virtuoso action sequences, well made choreographies. Unlike
-                    today's action movies, it doesn't use quick-cuts or shaky cameras actually see what's going on.</p>
-                <div class="buttons">
-                    <button class="btn" onclick="window.location.href = 'index.html';">Give Review</button>
+
+    <?php
+    include "db_conn.php";
+    $sql = "select * from moviereview.movie_data";
+    $res = mysqli_query($con, $sql);
+    if (mysqli_num_rows($res) > 0) {
+        while ($row = mysqli_fetch_assoc($res)) {
+    ?>
+            <section class="background firstSectionwebdata">
+                <div class="box-main">
+                    <div class="firsthalf">
+                        <p class="text-big"> <?= $row['name'] ?></p>
+                        <p class="text-small"><?= $row['description'] ?></p>
+                        <div class="buttons">
+                            <button class="btn" onclick="window.location.href = 'index.html';">Give Review</button>
+                        </div>
+                    </div>
+                    <div class="secondhalf">
+                        <img src="img/userprofile<?= $row['image'] ?>">
+                    </div>
                 </div>
-            </div>
-            <div class="secondhalf">
-                <img src="img/johnwick.jpg" alt="Movie Image">
-            </div>
-        </div>
-    </section>
-    <section class="background firstSection">
-        <div class="box-main">
-            <div class="firsthalf">
-                <p class="text-big"> Docter Strange </p>
-                <p class="text-small">John wick has a very simple revenge story. It can be summarized as
-                    "Keanu gets angry and shoots bad guys" but what makes it special? Directed by Chad
-                    Stahelski who's a stunt specialist boy does it show because the main selling point in
-                    the film are some real virtuoso action sequences, well made choreographies. Unlike
-                    today's action movies, it doesn't use quick-cuts or shaky cameras actually see what's going on.</p>
-                <div class="buttons">
-                    <button class="btn" onclick="window.location.href = 'index.html';">Give Review</button>
-                </div>
-            </div>
-            <div class="secondhalf">
-                <img src="img/johnwick.jpg" alt="Movie Image">
-            </div>
-        </div>
-    </section>
+            </section>
+        <?php
+        }
+    } else {
+        ?>
+        <img src="img/userimg.png" alt="Movie Image">
+    <?php
+    }
+    ?>
+    <footer>
+        <p class="text-footer">
+            Copyright &copy; 2022 - www.movieshrine.com All rights resreved
+        </p>
+    </footer>
     <script src="index.js"></script>
 </body>
+
 </html>
