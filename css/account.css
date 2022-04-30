@@ -78,7 +78,8 @@
   }
 
   .background{
-      background: rgba(0,0,0,0.7) url(../img/bg.jpg);
+      /* background: rgba(0,0,0,0.7) url(../img/bg.jpg); */
+      background: linear-gradient(to bottom, #a9b7ba, #ff6f00, #6abbf6);
       background-size: cover;
       background-blend-mode: darken;
   }
@@ -136,6 +137,10 @@
     font-family: Lobster;
 
 }
+.btn:hover {
+    color: rgb(0, 0, 0);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  }
 .btn-sm{
     padding: 2px 10px;
     color: black;

@@ -42,11 +42,12 @@
     $res = mysqli_query($con, $sql);
     if (mysqli_num_rows($res) > 0) {
         while ($row = mysqli_fetch_assoc($res)) {
+            $moviename=$row['name'];
     ?>
             <section class="background firstSectionwebdata">
                 <div class="box-main">
                     <div class="firsthalf">
-                        <p class="text-big"> <?= $row['name'] ?></p>
+                        <p class="text-big"><a class="rlink" href="reviews.php?mname=<?php echo $moviename?>"> <?= $row['name'] ?></a></p>
                         <p class="text-small"><?= $row['description'] ?></p>
                         <div class="buttons">
                             <button class="btn" onclick="window.location.href = 'index.html';">Give Review</button>
