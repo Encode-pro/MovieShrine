@@ -51,7 +51,9 @@
                     <input class="btn" type ="file" name= "my_image">
                     <input class="btn" type="submit" name="submit" value="Upload">
                     </form>
-                    <button class="btn" onclick="window.location.href = 'webdata.html';">Upload Web Data</button>
+                    <button class="btn" onclick="window.location.href = 'webdata.html';">Upload Movie Data</button>
+                    <button class="btn" onclick="window.location.href = 'tvseriesdata.html';">Upload TvSeries Data</button>
+
                 </div>
             </div>
             <div class="secondhalf">

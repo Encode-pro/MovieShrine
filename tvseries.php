@@ -1,13 +1,3 @@
-<?php
-// session_start();
-// if($_SESSION['email'])
-// {
-//     header("location:home.php");
-// }
-// else{
-//     header("location:signup.html");
-// }
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,32 +17,29 @@
             <div class="logo"><img src="img/logoo.png" onclick="window.location.href = 'account.php';" alt="logo"></div>
             <li><a href="home.php">Home</a></li>
             <li><a href="movies.php">Movies</a></li>
-            <li><a href="tvseries.php">TvSeries</a></li>
+            <li><a href="tvseries.html">TvSeries</a></li>
             <li><a href="Aboutus.html">About Us</a></li>
         </ul>
         <div class="rightNav">
-            <form action="search.php" method="post">
-            <input type="type" name="str" id="search">
-            <input type="submit" name="search" class="btn btn-sm" Value ="Search"/>
-            </form>
+            <input type="type" name="search" id="search">
+            <button class="btn btn-sm">Search</button>
         </div>
     </div>
 
     <?php
     include "db_conn.php";
-    $sql = "select * from moviereview.movie_data";
+    $sql = "select * from moviereview.tvseries";
     $res = mysqli_query($con, $sql);
     if (mysqli_num_rows($res) > 0) {
         while ($row = mysqli_fetch_assoc($res)) {
-            $moviename=$row['name'];
     ?>
             <section class="background firstSectionwebdata">
                 <div class="box-main">
                     <div class="firsthalf">
-                        <p class="text-big" name="reviewdetails" ><a class="rlink" href="reviews.php?mname=<?php echo $moviename?>"> <?= $row['name'] ?></a></p>
+                        <p class="text-big"> <?= $row['seriesname'] ?></p>
                         <p class="text-small"><?= $row['description'] ?></p>
                         <div class="buttons">
-                            <button class="btn" onclick="window.location.href = 'index.php?mname=<?php echo $moviename?>';">Give Review</button>
+                            <button class="btn" onclick="window.location.href = 'index.html';">Give Review</button>
                         </div>
                     </div>
                     <div class="secondhalf">
