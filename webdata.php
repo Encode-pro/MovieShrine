@@ -24,7 +24,7 @@ if(isset($_POST['submitdata']) && isset($_FILES['my_image']))
         {
             $img_ex=pathinfo($img_name,PATHINFO_EXTENSION);
             $img_ex_lc=strtolower($img_ex);
-            $allowed_exs=array("jpg","jpeg","png");
+            $allowed_exs=array("jpg","jpeg","png", "WEBP");
             if(in_array($img_ex_lc,$allowed_exs))
             {
                 $new_img_name=uniqid("IMG-",true).'.'.$img_ex_lc;

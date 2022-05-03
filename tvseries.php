@@ -17,7 +17,7 @@
             <div class="logo"><img src="img/logoo.png" onclick="window.location.href = 'account.php';" alt="logo"></div>
             <li><a href="home.php">Home</a></li>
             <li><a href="movies.php">Movies</a></li>
-            <li><a href="tvseries.html">TvSeries</a></li>
+            <li><a href="tvseries.php">TvSeries</a></li>
             <li><a href="Aboutus.html">About Us</a></li>
         </ul>
         <div class="rightNav">
@@ -32,14 +32,16 @@
     $res = mysqli_query($con, $sql);
     if (mysqli_num_rows($res) > 0) {
         while ($row = mysqli_fetch_assoc($res)) {
+            $moviename=$row['seriesname'];
+
     ?>
             <section class="background firstSectionwebdata">
                 <div class="box-main">
-                    <div class="firsthalf">
-                        <p class="text-big"> <?= $row['seriesname'] ?></p>
+                <div class="firsthalf">
+                        <p class="text-big" name="reviewdetails" ><a class="rlink" href="reviews.php?mname=<?php echo $moviename?>"> <?= $row['seriesname'] ?></a></p>
                         <p class="text-small"><?= $row['description'] ?></p>
                         <div class="buttons">
-                            <button class="btn" onclick="window.location.href = 'index.html';">Give Review</button>
+                            <button class="btn" onclick="window.location.href = 'index.php?mname=<?php echo $moviename?>';">Give Review</button>
                         </div>
                     </div>
                     <div class="secondhalf">
