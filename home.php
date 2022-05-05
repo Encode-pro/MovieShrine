@@ -68,6 +68,40 @@
     <?php
     }
     ?>
+
+<?php
+    include "db_conn.php";
+    $sql = "select * from moviereview.tvseries";
+    $res = mysqli_query($con, $sql);
+    if (mysqli_num_rows($res) > 0) {
+        while ($row = mysqli_fetch_assoc($res)) {
+            $moviename=$row['seriesname'];
+    ?>
+            <section class="background firstSectionwebdata">
+                <div class="box-main">
+                    <div class="firsthalf">
+                        <p class="text-big" name="reviewdetails" ><a class="rlink" href="reviews.php?mname=<?php echo $moviename?>"> <?= $row['seriesname'] ?></a></p>
+                        <p class="text-small"><?= $row['description'] ?></p>
+                        <div class="buttons">
+                            <button class="btn" onclick="window.location.href = 'indextvseries.php?mname=<?php echo $moviename?>';">Give Review</button>
+                        </div>
+                    </div>
+                    <div class="secondhalf">
+                        <img src="img/userprofile<?= $row['image'] ?>">
+                    </div>
+                </div>
+            </section>
+        <?php
+        }
+    } else {
+        ?>
+        <img src="img/userimg.png" alt="Movie Image">
+    <?php
+    }
+    ?>
+
+
+
     <footer>
         <p class="text-footer">
             Copyright &copy; 2022 - www.movieshrine.com All rights resreved

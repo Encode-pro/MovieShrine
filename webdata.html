@@ -17,12 +17,14 @@
             <div class="logo"><img src="img/logoo.png" onclick="window.location.href = 'account.php';" alt="logo"></div>
             <li><a href="home.php">Home</a></li>
             <li><a href="movies.php">Movies</a></li>
-            <li><a href="tvseries.html">TvSeries</a></li>
+            <li><a href="tvseries.php">TvSeries</a></li>
             <li><a href="Aboutus.html">About Us</a></li>
         </ul>
         <div class="rightNav">
-            <input type="type" name="search" id="search">
-            <button class="btn btn-sm">Search</button>
+            <form action="search.php" method="post">
+                <input type="type" name="str" id="search">
+                <input type="submit" name="search" class="btn btn-sm" Value ="Search"/>
+                </form>
         </div>
     </div>
     <section class="background firstSectionsearch">

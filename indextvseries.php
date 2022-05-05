@@ -40,17 +40,17 @@
     // $sql2 = " CREATE PROCEDURE p() READS SQL DATA begin insert into moviereview.review (moviename,username) values('$mname','$username') 
     // WHERE NOT EXISTS (select * from moviereview.review where moviename='$mname') end";
     // mysqli_query($con, $sql2);
-    $sql = "select * from moviereview.movie_data where name='$mname'";
+    $sql = "select * from moviereview.tvseries where seriesname='$mname'";
     $res = mysqli_query($con, $sql);
     if (mysqli_num_rows($res) > 0) {
         while ($row = mysqli_fetch_assoc($res)) {
-            $moviename = $row['name'];
+            $moviename = $row['seriesname'];
             $_SESSION['movieename']=$moviename;
     ?>
             <section class="background firstSectionwebdata">
                 <div class="box-main">
                     <div class="firsthalf">
-                        <p class="text-big"><a class="rlink" href="reviews.php?mname=<?php echo $moviename ?>"> <?= $row['name'] ?></a></p>
+                        <p class="text-big"><a class="rlink" href="reviews.php?mname=<?php echo $moviename ?>"> <?= $row['seriesname'] ?></a></p>
                         <p class="text-small"><?= $row['description'] ?></p>
                         <div class="buttons">
                             <button class="btn" onclick="window.location.href = 'index.php?mname=<?php echo $moviename ?>';">Give Review</button>

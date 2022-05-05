@@ -32,7 +32,7 @@ if(isset($_POST['submitdata']) && isset($_FILES['my_image']))
                 move_uploaded_file($tmp_name,$img_upload_path);
                 $sql="insert into moviereview.tvseries (seriesname,description,image) values ('$name','$descp','$new_img_name')";
                 mysqli_query($con,$sql);
-                header("Location: webdata.html");
+                header("Location: tvseriesdata.php");
                 
             }
             else

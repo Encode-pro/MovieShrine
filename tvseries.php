@@ -21,8 +21,10 @@
             <li><a href="Aboutus.html">About Us</a></li>
         </ul>
         <div class="rightNav">
-            <input type="type" name="search" id="search">
-            <button class="btn btn-sm">Search</button>
+        <form action="search.php" method="post">
+            <input type="type" name="str" id="search">
+            <input type="submit" name="search" class="btn btn-sm" Value ="Search"/>
+            </form>
         </div>
     </div>
 
@@ -41,7 +43,7 @@
                         <p class="text-big" name="reviewdetails" ><a class="rlink" href="reviews.php?mname=<?php echo $moviename?>"> <?= $row['seriesname'] ?></a></p>
                         <p class="text-small"><?= $row['description'] ?></p>
                         <div class="buttons">
-                            <button class="btn" onclick="window.location.href = 'index.php?mname=<?php echo $moviename?>';">Give Review</button>
+                            <button class="btn" onclick="window.location.href = 'indextvseries.php?mname=<?php echo $moviename?>';">Give Review</button>
                         </div>
                     </div>
                     <div class="secondhalf">

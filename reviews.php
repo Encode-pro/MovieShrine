@@ -25,8 +25,10 @@ $moname=$_GET['mname'];
             <li><a href="Aboutus.html">About Us</a></li>
         </ul>
         <div class="rightNav">
-            <input type="type" name="search" id="search">
-            <button class="btn btn-sm">Search</button>
+        <form action="search.php" method="post">
+            <input type="type" name="str" id="search">
+            <input type="submit" name="search" class="btn btn-sm" Value ="Search"/>
+            </form>
         </div>
     </div>
     <?php

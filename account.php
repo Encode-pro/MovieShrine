@@ -44,7 +44,7 @@
                         echo "<br>";
                         ?> 
                     </p>
-                <p class="text-small"> This is Website where you can see reviews and give your reviews about a movie. <br> Enjoy your vist on this site.</p>
+                <p class="text-small"> This is Website where you can see reviews and give your reviews about a movie. <br> Enjoy your vist on this site.<br>    </p>
                 <div class="buttons">
                     <button class="btn" onclick="window.location.href = 'logout.php';">Logout</button>
                     <form action="uploaddata.php" method="post" enctype="multipart/form-data">
