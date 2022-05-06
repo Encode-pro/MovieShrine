@@ -15,9 +15,9 @@
     <div class="navbar">
         <ul class="nav-list">
             <div class="logo"><img src="img/logoo.png" onclick="window.location.href = 'account.php';" alt="logo"></div>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="movie.html">Movies</a></li>
-            <li><a href="tvseries.html">TvSeries</a></li>
+            <li><a href="home.php">Home</a></li>
+            <li><a href="movie.php">Movies</a></li>
+            <li><a href="tvseries.php">TvSeries</a></li>
             <li><a href="Aboutus.html">About Us</a></li>
         </ul>
         <div class="rightNav">
@@ -76,7 +76,7 @@
 
                     <p class="text-small">
                         <?php
-                        $sql = "select * from moviereview.review where name like '%$str%'";
+                        $sql = "select * from moviereview.reviews where name like '%$str%'";
                         //echo "Success connecting to db";
                         //echo $sql;
                         $res = mysqli_query($con, $sql);
@@ -117,12 +117,12 @@
                             while ($row = mysqli_fetch_assoc($res)) {
                         ?>
                                 <tr>
-                                    <td><?php echo $row['sno']; ?></td>
+                                    <td><?php echo $row['id']; ?></td>
                                     <td><?php echo $row['name']; ?></td>
                                     <td><?php echo $row['number']; ?></td>
-                                    <td><?php echo $row['sreview']; ?></td>
-                                    <td><?php echo $row['nreview']; ?></td>
-                                    <td><?php echo $row['lreview']; ?></td>
+                                    <td><?php echo $row['shortreview']; ?></td>
+                                    <td><?php echo $row['noreview']; ?></td>
+                                    <td><?php echo $row['longreview']; ?></td>
                                 </tr>
 
                         <?php
